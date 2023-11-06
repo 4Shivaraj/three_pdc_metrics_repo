@@ -1,5 +1,5 @@
-- dashboard: metrics_summary
-  title: Metrics Summary
+- dashboard: three_pdc_metrics_summary
+  title: 3PDC Metrics Summary
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
