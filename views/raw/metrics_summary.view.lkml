@@ -4,6 +4,7 @@ view: metrics_summary {
   dimension: data_refresh {
     type: string
     sql: ${TABLE}.data_refresh ;;
+    hidden: yes
   }
   dimension: metro {
     type: string
