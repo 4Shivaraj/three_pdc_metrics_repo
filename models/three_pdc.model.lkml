@@ -1,6 +1,6 @@
 connection: "@{CONNECTION_NAME}"
 
 include: "/views/refinements/*.view.lkml"
-include: "/dashboards/*.dashboard"
+# include: "/dashboards/three_pdc_dashboards/*.dashboard"
 
-explore: metrics_summary {}
+explore: metrics_summary{}
