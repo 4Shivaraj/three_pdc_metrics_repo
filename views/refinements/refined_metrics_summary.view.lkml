@@ -13,8 +13,8 @@ view: +metrics_summary {
       year
     ]
     convert_tz: no
-    datatype: datetime
-    sql: ${TABLE}.data_refresh ;;
+    #datatype: datetime
+    sql: PARSE_DATETIME('%Y-%m-%d %H:%M',${TABLE}.data_refresh);;
   }
 
   dimension: metro {
@@ -55,6 +55,14 @@ view: +metrics_summary {
   dimension: sdd_processed_count {
     type: number
     sql: ${TABLE}.sdd_processed_count ;;
+  }
+
+  ###### Measures ########
+
+  measure: max_data_refresh_time  {
+    type: date_time
+    sql: MAX(${data_refresh_raw}) ;;
+    html: <p style="font-size:15px"> <b>Max Refresh Time :  </b>{{value}} </p> ;;
   }
 
   measure: sdd_slo_score_base {
