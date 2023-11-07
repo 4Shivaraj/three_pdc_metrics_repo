@@ -1,5 +1,6 @@
 view: three_pdc_machine_maintenance {
   sql_table_name: `@{GCP_PROJECT}.@{REPORTING_DATASET}.three_pdc_machine_maintenance` ;;
+  fields_hidden_by_default: yes
 
   dimension_group: duration {
     type: time
