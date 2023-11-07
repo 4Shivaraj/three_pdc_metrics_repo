@@ -25,8 +25,8 @@ view: +metrics_summary {
       year
     ]
     convert_tz: no
-    #datatype: datetime
-    sql: PARSE_DATETIME('%Y-%m-%d %H:%M', ${TABLE}.data_refresh);;
+    datatype: timestamp
+    sql:${TABLE}.data_refresh;;
   }
 
   dimension_group: duration {
