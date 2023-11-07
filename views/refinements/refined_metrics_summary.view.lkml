@@ -62,7 +62,7 @@ view: +metrics_summary {
   measure: max_data_refresh_time  {
     type: date_time
     sql: MAX(${data_refresh_raw}) ;;
-    html: <p style="font-size:15px"> <b>Max Refresh Time :  </b>{{value}} </p> ;;
+    html: <p style="font-size:15px"> <b>Max Data Refresh Time :  </b>{{value}} </p> ;;
   }
 
   measure: sdd_slo_score_base {
