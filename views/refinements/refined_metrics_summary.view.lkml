@@ -133,6 +133,7 @@ view: +metrics_summary {
     type: number
     sql: ROUND(1.0 - IFNULL(SAFE_DIVIDE(CAST(IFNULL(SUM(${sdd_hwops_violations}),0) AS FLOAT64), CAST(IFNULL(SUM(${sdd_processed_count}), 0) AS FLOAT64)), 0), 2) ;;
     hidden: no
+    value_format_name: percent_2
   }
 
   ###### Measures ########
