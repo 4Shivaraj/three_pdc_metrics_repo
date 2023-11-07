@@ -136,12 +136,6 @@ view: +metrics_summary {
   }
 
   ###### Measures ########
-  # dimension: last_data_refreshed {
-  #   type: string
-  #   sql: FORMAT_TIMESTAMP('%d-%b-%Y %I:%M %p, %Z', ${data_refresh_raw}, 'America/Los_Angeles') ;;
-  #   hidden: no
-  # }
-
   measure: max_data_refresh_time  {
     type: date_time
     sql: MAX(${data_refresh_raw}) ;;
