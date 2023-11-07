@@ -26,7 +26,7 @@ view: +metrics_summary {
     ]
     convert_tz: no
     #datatype: datetime
-    sql: PARSE_DATETIME('%Y-%m-%d %H:%M',${TABLE}.data_refresh);;
+    sql: PARSE_DATETIME('%Y-%m-%d %H:%M', ${TABLE}.data_refresh);;
   }
 
   dimension_group: duration {
