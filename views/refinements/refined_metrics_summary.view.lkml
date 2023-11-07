@@ -2,13 +2,6 @@ include: "/views/raw/three_pdc_metrics_summary.view.lkml"
 
 view: +metrics_summary {
 
-  dimension_group: data_refresh {
-    type: time
-    timeframes: [raw, time, date, week, month, quarter, year]
-    sql: ${TABLE}.data_refresh ;;
-    hidden: yes
-  }
-
   dimension: data_source {
     type: string
     sql: ${TABLE}.data_source ;;
@@ -19,6 +12,21 @@ view: +metrics_summary {
     type: number
     sql: ${TABLE}.denominator ;;
     hidden: yes
+  }
+
+  dimension_group: data_refresh {
+    type: time
+    timeframes: [
+      raw,
+      date,
+      week,
+      month,
+      quarter,
+      year
+    ]
+    convert_tz: no
+    #datatype: datetime
+    sql: PARSE_DATETIME('%Y-%m-%d %H:%M',${TABLE}.data_refresh);;
   }
 
   dimension_group: duration {
@@ -41,7 +49,6 @@ view: +metrics_summary {
     sql_longitude: ${TABLE}.longitude ;;
     sql_latitude:  ${TABLE}.latitude;;
     hidden: no
-
   }
 
   dimension: map_metric {
@@ -128,6 +135,20 @@ view: +metrics_summary {
     hidden: no
   }
 
+  ###### Measures ########
+  # dimension: last_data_refreshed {
+  #   type: string
+  #   sql: FORMAT_TIMESTAMP('%d-%b-%Y %I:%M %p, %Z', ${data_refresh_raw}, 'America/Los_Angeles') ;;
+  #   hidden: no
+  # }
+
+  measure: max_data_refresh_time  {
+    type: date_time
+    sql: MAX(${data_refresh_raw}) ;;
+    html: <p style="font-size:15px"> <b>Max Data Refresh Time :  </b>{{value}} </p> ;;
+    hidden: no
+  }
+
   measure: sdd_slo_score_base {
     type: number
     sql:  ROUND((1.0 - SAFE_DIVIDE(SUM(${sdd_hwops_violations}), SUM(${sdd_processed_count})))*100,2) ;;
@@ -158,12 +179,6 @@ view: +metrics_summary {
   measure: processed_count {
     type: sum
     sql: ${sdd_processed_count} ;;
-    hidden: no
-  }
-
-  dimension: last_data_refreshed {
-    type: string
-    sql: FORMAT_TIMESTAMP('%d-%b-%Y %I:%M %p, %Z', ${data_refresh_raw}, 'America/Los_Angeles') ;;
     hidden: no
   }
 
