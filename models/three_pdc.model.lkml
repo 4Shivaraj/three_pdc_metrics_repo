@@ -1,6 +1,7 @@
 connection: "@{CONNECTION_NAME}"
 
 include: "/views/refinements/*.view.lkml"
+include: "/views/raw/*.view.lkml"
 # include: "/dashboards/three_pdc_dashboards/*.dashboard"
 
 explore: metrics_summary{
@@ -11,5 +12,7 @@ explore: metrics_summary{
           and ${metrics_summary.metro} = ${three_pdc_machine_maintenance.metro} ;;
   }
 }
+
+explore: slips {}
 
 # explore: three_pdc_machine_maintenance {}
