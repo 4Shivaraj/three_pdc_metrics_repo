@@ -54,12 +54,6 @@ view: +metrics_summary {
   dimension: map_metric {
     type: number
     sql: ${TABLE}.map_metric ;;
-    hidden: yes
-  }
-
-  dimension: ooslo_metric_size {
-    type: number
-    sql: LOG(100 + ${map_metric}) ;;
     hidden: no
   }
 
@@ -148,6 +142,10 @@ view: +metrics_summary {
     type: number
     sql:  ROUND((1.0 - SAFE_DIVIDE(SUM(${sdd_hwops_violations}), SUM(${sdd_processed_count})))*100,2) ;;
     label: "Data Security (Target: 100%)"
+    link: {
+      label: "3PDC Data Security"
+      url: "https://69af6669-814a-475b-8caf-6e43a13b16e2.looker.app/dashboards/17?Metro=&Region=&Duration%20Type="
+    }
     hidden: no
   }
 
@@ -155,6 +153,10 @@ view: +metrics_summary {
     type: number
     sql: ROUND((1.0 - SAFE_DIVIDE(SUM(${mmt1_slo_sum}), SUM(${mmt1_slo_count}))) * 100,2) ;;
     label: "MM Tier1 SLO Avg Score (Target: 99%)"
+    link: {
+      label: "3PDC Machine Maintenance"
+      url: "https://69af6669-814a-475b-8caf-6e43a13b16e2.looker.app/dashboards/18?Metro%20Tier=&Region=&Duration%20Type=&Metro="
+    }
     hidden: no
   }
 
@@ -162,6 +164,17 @@ view: +metrics_summary {
     type: number
     sql: ROUND((1.0 - SAFE_DIVIDE(SUM(${mmt23_slo_sum}), SUM(${mmt23_slo_count}))) * 100,2) ;;
     label: "MM Tier2&3 SLO Avg Score (Target: 99%)"
+    link: {
+      label: "3PDC Machine Maintenance"
+      url: "https://69af6669-814a-475b-8caf-6e43a13b16e2.looker.app/dashboards/18?Metro%20Tier=&Region=&Duration%20Type=&Metro="
+    }
+    hidden: no
+  }
+
+  measure: ooslo_metric_size {
+    type: number
+    sql: LOG(100 + ${map_metric}) ;;
+    value_format_name: decimal_4
     hidden: no
   }
 
