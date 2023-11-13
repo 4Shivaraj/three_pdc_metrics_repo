@@ -11,6 +11,14 @@ explore: metrics_summary{
   sql_on: ${metrics_summary.region} = ${three_pdc_machine_maintenance.region}
           and ${metrics_summary.metro} = ${three_pdc_machine_maintenance.metro} ;;
   }
+  query: region_by_data_security{
+    dimensions: [metrics_summary.region]
+    measures: [metrics_summary.sdd_slo_score_base]
+    label: "Region By Data Security"
+    description: "Region By Data Security"
+    limit: 100
+  }
+
 }
 
 explore: slips {}
