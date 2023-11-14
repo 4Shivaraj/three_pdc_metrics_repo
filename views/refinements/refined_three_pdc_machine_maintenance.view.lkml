@@ -8,12 +8,12 @@ view: +three_pdc_machine_maintenance {
     convert_tz: no
     datatype: date
     sql: ${TABLE}.duration_date ;;
-    hidden: no
+    hidden: yes
   }
   dimension: metro {
     type: string
     sql: ${TABLE}.metro ;;
-    hidden: no
+    hidden: yes
   }
   dimension: metro_tier {
     type: string
@@ -23,7 +23,7 @@ view: +three_pdc_machine_maintenance {
   dimension: region {
     type: string
     sql: ${TABLE}.region ;;
-    hidden: no
+    hidden: yes
   }
   dimension: time_above_buffer {
     type: number
@@ -52,8 +52,5 @@ view: +three_pdc_machine_maintenance {
     sql: 0.99 ;;
     value_format_name: percent_2
     hidden: no
-  }
-  measure: count {
-    type: count
   }
 }
