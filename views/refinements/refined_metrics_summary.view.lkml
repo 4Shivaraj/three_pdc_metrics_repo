@@ -144,7 +144,7 @@ view: +metrics_summary {
     label: "Data Security (Target: 100%)"
     link: {
       label: "3PDC Data Security"
-      url: "https://69af6669-814a-475b-8caf-6e43a13b16e2.looker.app/dashboards/17?Metro=&Region=&Duration%20Type="
+      url: "https://69af6669-814a-475b-8caf-6e43a13b16e2.looker.app/dashboards/17?Metro={{ _filters['metrics_summary.metro']| url_encode }}&Region={{ _filters['metrics_summary.region']| url_encode }}&Duration%20Type={{ _filters['metrics_summary.duration_type']| url_encode }}"
     }
     hidden: no
   }
@@ -155,7 +155,7 @@ view: +metrics_summary {
     label: "MM Tier1 SLO Avg Score (Target: 99%)"
     link: {
       label: "3PDC Machine Maintenance"
-      url: "https://69af6669-814a-475b-8caf-6e43a13b16e2.looker.app/dashboards/18?Metro%20Tier=&Region=&Duration%20Type=&Metro="
+      url: "https://69af6669-814a-475b-8caf-6e43a13b16e2.looker.app/dashboards/18?Metro%20Tier=&Region={{ _filters['metrics_summary.region']| url_encode }}&Duration%20Type={{ _filters['metrics_summary.duration_type']| url_encode }}&Metro={{ _filters['metrics_summary.metro']| url_encode }}"
     }
     hidden: no
   }
@@ -166,7 +166,7 @@ view: +metrics_summary {
     label: "MM Tier2&3 SLO Avg Score (Target: 99%)"
     link: {
       label: "3PDC Machine Maintenance"
-      url: "https://69af6669-814a-475b-8caf-6e43a13b16e2.looker.app/dashboards/18?Metro%20Tier=&Region=&Duration%20Type=&Metro="
+      url: "https://69af6669-814a-475b-8caf-6e43a13b16e2.looker.app/dashboards/18?Metro%20Tier=&Region={{ _filters['metrics_summary.region']| url_encode }}&Duration%20Type={{ _filters['metrics_summary.duration_type']| url_encode }}&Metro={{ _filters['metrics_summary.metro']| url_encode }}"
     }
     hidden: no
   }
