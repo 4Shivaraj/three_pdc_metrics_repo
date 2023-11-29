@@ -12,6 +12,7 @@ view: +metrics_summary {
     type: number
     sql: ${TABLE}.denominator ;;
     hidden: yes
+
   }
 
   dimension_group: data_refresh {
